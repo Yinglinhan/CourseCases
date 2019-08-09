@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Montserrat light';
+    src:url('./src/fonts/Montserrat/Montserrat-light.ttf')
+}
+@font-face{
+    font-family: 'Montserrat thin';
+    src:url('./src/fonts/Montserrat/Montserrat-thin.ttf')
+}
+@font-face{
+    font-family: 'Open Sans Condensed light';
+    src:url('./src/fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf')
+}
+@font-face{
+    font-family: 'Montserrat bold';
+    src:url('./src/fonts/Montserrat/Montserrat-bold.ttf')
+}
+
+html{
+    box-sizing: border-box;
+
+}
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    &::before,&::after{
+        box-sizing: inherit;
+    }
+}

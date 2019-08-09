@@ -1,0 +1,285 @@
+@import './css\ module/_variable';
+@import './css\ module/_mixins';
+@import './css\ module/_reset';
+
+/**
+* --------------------- 头部导航区域 -------------
+**/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .container-box{
+        padding: 30px 0;
+    }
+    svg{
+        width: 207px;
+        height: 54px;
+    }
+    .logo{
+        float: left;
+    }
+    nav{
+        float: right;
+        a{
+            line-height: 54px;
+            @include nav-font;
+            margin-left: 30px;
+            &.selected.selected{
+                text-decoration: underline;
+            }
+            &:hover{
+                text-decoration: line-through;
+            }
+        }
+        
+    }
+   
+    .hamburger{
+        display: none;
+        // clear: both;
+        float: right;
+        // display: flex;
+        align-items: center;
+        height: 54px;
+        div{
+            background-color: #333;
+            height: 2px;
+            width: 24px;
+            &::before{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: inherit;
+                transform: translateY(8px);
+                transition: transform linear 0.2s;
+            }
+            &::after{
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: inherit;
+                transform: translateY(-10px);
+                transition: transform linear 0.2s;
+            }
+        }
+    }
+}
+.container-box{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/**
+* --------------------- 核心作品区域 -------------
+**/
+.projects-box{
+    // height: 20000px;
+    // background-color: red;
+    // background-color:#f8f8fa; 
+    margin-top: 120px;
+
+    .project{
+        margin-bottom: 2px;
+        // height: 100px;
+        background-color:#f8f8fa; 
+    }
+    .item1,.item3,.item5{
+        .project-info{
+            float: left;
+            width: 46%;
+        }
+        
+        .project-img{
+            float: right;
+            width: 50%;
+        }
+    }
+
+    .item2, .item4{
+        .project-info{
+            float: right;
+            width: 46%;
+        }
+        .project-img{
+            float: left;
+            width: 50%;
+        }
+    }
+    
+    .container-box{
+        overflow: hidden;
+        .project-info{
+            
+            
+            padding-top: 100px;
+            .title{
+                @include project-title;
+                
+            }
+            .detail{
+                @include project-p;
+                width: 80%;
+                padding-top: 10px;
+            }
+            .button-to-case{
+                @include btn-to-project;
+                margin-top: 40px;
+                &:hover{
+                    @include btn-to-project-hover;
+                }
+            }
+            .role{
+                display: block;
+                margin-top: 80px;
+                font-family:  'Montserrat light';
+                font-size: 0.9rem;
+                opacity: 0.4;
+            }
+        }
+        .project-img{
+            width: 50%;
+            font-size: 0;
+            img{
+                width: 100%;
+                
+            }
+        }
+    }    
+}
+/**
+* --------------------- 尾部区域 -----------------
+**/
+.bottom{
+    background-color: #f9e4e1;
+    text-align: center;
+    .container-box{
+        padding: 100px 0;
+        p{
+            @include project-p;
+            font-size: 2rem;
+            width: 60%;
+            margin: 0 auto;
+        }
+        a{
+            margin-top: 30px;
+            @include btn-to-project;
+            &:hover{
+                @include btn-to-project-hover;
+            }
+        }
+    }
+}
+
+/**
+* --------------------- 尾部区域 -----------------
+**/
+#target-top{
+    height: 1px;
+}
+.go-to-top{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: transform .3s linear;
+    &:hover{
+        transform: scale(1.2)
+    }
+}
+
+
+/**
+* --------------------- 响应式设置 -----------------
+**/
+@media screen and (max-width:1413px){
+    .container-box{
+        // max-width: 1080px;
+        padding: 0 10%;
+        margin: 0 auto;
+    }
+    header{
+        .container-box{
+            // max-width: 1080px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin: 0 auto;
+        }
+    }
+}
+@media screen and (max-width:1040px){
+    nav{
+        a{
+            display: none;
+        }
+        
+    }
+    .container-box {
+        .hamburger{
+            display: flex;
+        }    
+    }
+   .hamburger:hover{
+       div::before{
+        transform: translateY(12px);
+       }
+       div::after{
+        transform: translateY(-14px);
+       }
+   }
+    .project-img{
+        margin-top: 12%;
+    }
+    
+    
+}
+@media screen and (max-width:768px){
+    .projects-box{
+        .item1,.item3,.item5{
+            .project-info{
+                float: none;
+                display: block;
+                width: 100%;
+                .detail{
+                    
+                    width: 100%;
+                    
+                }
+            }
+            
+            .project-img{
+                display: block;
+                float: none;
+                width: 100%;
+            }
+        }
+        .item2, .item4{
+            .project-info{
+                float: none;
+                width: 100%;
+                // transform: translateY(100%)
+                .detail{
+                    
+                    width: 100%;
+                    
+                }
+            }
+            .project-img{
+                float: left;
+                width: 100%;
+            }
+        }
+    }
+
+    
+    .container-box{
+        .project-img{
+
+        }
+    }
+    
+    
+    
+}
